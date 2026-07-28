@@ -5,7 +5,7 @@ export interface Usuario{
 }
 
 export interface LoginResponse {
-    acessToken: string;
+    accessToken: string;
     usuario: Usuario;
 }
 
