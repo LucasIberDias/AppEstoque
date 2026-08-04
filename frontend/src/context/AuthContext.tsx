@@ -1,4 +1,4 @@
-import { createContex, useContex, useState, type ReactNode } from 'react';
+import { createContext, useContext, useState, type ReactNode } from 'react';
 import type { Usuario } from '../types'
 import { authApi } from '../api/api';
 
@@ -9,7 +9,7 @@ interface AuthContextType {
     logout: () => void;
 }
 
-const AuthContext = createContex<AuthContextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
     const [usuario, setUsuario] = useState<Usuario | null>(() => {
@@ -38,7 +38,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 }
 
 export function useAuth(){
-    const context = useContex(AuthContext);
+    const context = useContext(AuthContext);
     if(!context){
         throw new Error ("useAuth deve ser usado dentro de um AuthProvider");
     }
