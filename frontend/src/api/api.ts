@@ -22,7 +22,7 @@ function simularDelay<T>(valor: T): Promise<T> {
 export const authApi = {
   login: (email: string, senha: string): Promise<LoginResponse> => {
     const usuario = usuariosMock.find((u) => u.email === email);
-https://github.com/LucasIberDias/AppEstoque.git
+
     if (!usuario || usuario.senha !== senha) {
      
       return Promise.reject({
